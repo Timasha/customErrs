@@ -8,10 +8,17 @@ import (
 type Err struct {
 	Msg        string `json:"msg"`
 	CustomCode int64  `json:"customCode"`
-	HttpCode   *int64 `json:"httpCode,omitempty"`
+	HttpCode   int64  `json:"httpCode,omitempty"`
 }
 
-func New(msg string, customCode int64, httpCode *int64) *Err {
+func New(msg string, customCode int64) *Err {
+	return &Err{
+		Msg:        msg,
+		CustomCode: customCode,
+	}
+}
+
+func NewHttp(msg string, customCode int64, httpCode int64) *Err {
 	return &Err{
 		Msg:        msg,
 		CustomCode: customCode,
