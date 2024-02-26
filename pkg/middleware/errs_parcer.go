@@ -12,7 +12,7 @@ type ErrsParser struct {
 
 func (e *ErrsParser) Parse(strErr string) (err *errs.Err, isCustom bool) {
 	switch e.ParsingType {
-	case internal.TypeJSON:
+	case errs.TypeJSON:
 		{
 			err = new(errs.Err)
 
