@@ -2,12 +2,11 @@ package errs
 
 import (
 	"encoding/json"
-	"github.com/Timasha/customErrs/internal"
 )
 
 func Parse(strErr string) (err *Err, isInternal bool) {
 	switch defaultParsingType {
-	case internal.TypeJSON:
+	case TypeJSON:
 		{
 			err = new(Err)
 

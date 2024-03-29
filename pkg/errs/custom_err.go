@@ -26,11 +26,11 @@ func NewHttp(msg string, customCode int64, httpCode int64) *Err {
 	}
 }
 
-var defaultParsingType internal.ParsingType = internal.TypeJSON
+var defaultParsingType internal.ParsingType = TypeJSON
 
 func (e *Err) Error() (strErr string) {
 	switch defaultParsingType {
-	case internal.TypeJSON:
+	case TypeJSON:
 		{
 			byteErr, marshalErr := json.Marshal(*e)
 			if marshalErr != nil {
@@ -44,5 +44,5 @@ func (e *Err) Error() (strErr string) {
 }
 
 func SetDefaultParsingTypeJSON() {
-	defaultParsingType = internal.TypeJSON
+	defaultParsingType = TypeJSON
 }
